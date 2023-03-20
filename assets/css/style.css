@@ -145,4 +145,10 @@
     margin-top: 20px;
     margin-bottom: 50px;
 }
+.error-msg{
+    color: red;
+    text-align: center;
+}
+.showed{visibility: visible;}
+.hidden{visibility: hidden;}
 
