@@ -8,6 +8,7 @@
 function validCardNumber(){
 
     let cardNumber = document.getElementById("card-nb-input").value;
+    displayValidNumber(cardNumber);
 
     if (cardNumber.length != 0){
 
@@ -39,3 +40,27 @@ function validCardNumber(){
 };
 
 document.getElementById("validCardBtn").addEventListener("click", validCardNumber);
+
+function displayValidNumber(cardNb){
+
+    let tagsArr = document.getElementsByClassName("card-no-item");
+
+    let digits = "";
+    let arrCardNumbers = [];
+
+    for (let i = 0; i<= 16; i++){
+        
+        digits = digits + cardNb[i];
+        if ((i+1)%4 == 0){
+            arrCardNumbers.push(digits)
+            digits = "";
+        }
+    };
+
+    tagsArr[0].innerHTML = arrCardNumbers[0];
+    tagsArr[1].innerHTML = arrCardNumbers[1];
+    tagsArr[2].innerHTML = arrCardNumbers[2];
+    tagsArr[3].innerHTML = arrCardNumbers[3];
+
+   
+}
