@@ -1,5 +1,5 @@
-// CHECKING BANK CARDS PROGRAM
-// Done by K. Laurion Dareich, Software Engineer
+// CHECKING BANK CARDS NUMBERS
+// Done by KOUHOUINIKINA Laurion Dareich, Software Engineer
 // Alumni Ecole241 Promo 1, SUPINFO 2022
 
 
@@ -9,42 +9,49 @@ const validateCardNumber = () => {
 
     if (cardNumber.length != 0 && cardNumber.length == 16){
 
-        // Following lines are luhn algorithm, written in Javascript by GeeksForGeeks
+        // Luhn algorithm written in Javascript by GeeksForGeeks
         // https://www.geeksforgeeks.org/luhn-algorithm/
 
         let nDigits = cardNumber.length;
     
-            let nSum = 0;
-            let isSecond = false;
+        let nSum = 0;
+        let isSecond = false;
 
-            for (let i = nDigits - 1; i >= 0; i--){
-    
-                let d = cardNumber[i].charCodeAt() - '0'.charCodeAt();
-    
-                if (isSecond == true)
-                    d = d * 2;
+        for (let i = nDigits - 1; i >= 0; i--){
 
-                nSum += parseInt(d / 10, 10);
-                nSum += d % 10;
-    
-                isSecond = !isSecond;
-            }
+            let d = cardNumber[i].charCodeAt() - '0'.charCodeAt();
 
-            if (nSum % 10 == 0) {
-                
-                displayValidNumber(cardNumber);
-                checkCardType(cardNumber);
+            if (isSecond == true)
+                d = d * 2;
 
-                document.getElementsByClassName("success-msg")[0].classList.remove("hidden");
-                document.getElementsByClassName("success-msg")[0].classList.add("showed");
-                document.getElementsByClassName("error-msg")[0].classList.add("hidden");
-            }
-            else {
-                document.getElementsByClassName("error-msg")[0].classList.remove("hidden");
-                document.getElementsByClassName("error-msg")[0].classList.add("showed");
-            }
+            nSum += parseInt(d / 10, 10);
+            nSum += d % 10;
+
+            isSecond = !isSecond;
         }
 
+        if (nSum % 10 == 0) {
+            
+            displayValidNumber(cardNumber);
+            checkCardType(cardNumber);
+
+            document.getElementsByClassName("success-msg")[0].classList.remove("hidden");
+            document.getElementsByClassName("success-msg")[0].classList.add("showed");
+
+            document.getElementsByClassName("error-msg")[0].classList.remove("showed");
+            document.getElementsByClassName("error-msg")[0].classList.add("hidden");
+
+            return;
+        };
+            
+    };
+
+    document.getElementsByClassName("error-msg")[0].classList.remove("hidden");
+    document.getElementsByClassName("error-msg")[0].classList.add("showed");
+
+    document.getElementsByClassName("success-msg")[0].classList.remove("showed");
+    document.getElementsByClassName("success-msg")[0].classList.add("hidden");
+        
    
 };
 
