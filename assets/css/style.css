@@ -143,12 +143,18 @@
     border-radius: 3px;
     margin-left: 180px;
     margin-top: 20px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 .error-msg{
     color: red;
     text-align: center;
+    padding-bottom: 10px;
 }
-.showed{visibility: visible;}
-.hidden{visibility: hidden;}
+.success-msg{
+    color: green;
+    text-align: center;
+    padding-bottom: 10px;
+}
+.showed{display: block;}
+.hidden{display: none;}
 
