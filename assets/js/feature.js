@@ -3,26 +3,21 @@
 // Alumni Ecole241 Promo 1, SUPINFO 2022
 
 
-
-
-const validCardNumber = () => {
+const validateCardNumber = () => {
 
     let cardNumber = document.getElementById("card-nb-input").value;
-    displayValidNumber(cardNumber);
-    checkCardType(cardNumber);
 
-    if (cardNumber.length != 0){
+    if (cardNumber.length != 0 && cardNumber.length == 16){
 
-         // Following lines come from GeeksForGeeks platform
-        // https://www.geeksforgeeks.org/
+        // Following lines are luhn algorithm, written in Javascript by GeeksForGeeks
+        // https://www.geeksforgeeks.org/luhn-algorithm/
 
         let nDigits = cardNumber.length;
     
             let nSum = 0;
             let isSecond = false;
 
-            for (let i = nDigits - 1; i >= 0; i--)
-            {
+            for (let i = nDigits - 1; i >= 0; i--){
     
                 let d = cardNumber[i].charCodeAt() - '0'.charCodeAt();
     
@@ -34,7 +29,16 @@ const validCardNumber = () => {
     
                 isSecond = !isSecond;
             }
-            return (nSum % 10 == 0);
+
+            if (nSum % 10 == 0) {
+                console.log("clicked 2")
+                displayValidNumber(cardNumber);
+                checkCardType(cardNumber)
+            }
+            else {
+                document.getElementsByClassName("error-msg")[0].classList.remove("hidden");
+                document.getElementsByClassName("error-msg")[0].classList.add("showed");
+            }
         }
 
    
@@ -61,12 +65,13 @@ const displayValidNumber = (cardNb) => {
     tagsArr[1].innerHTML = arrCardNumbers[1];
     tagsArr[2].innerHTML = arrCardNumbers[2];
     tagsArr[3].innerHTML = arrCardNumbers[3];
+
+    document.getElementsByClassName("error-msg")[0].classList.remove("showed");
+    document.getElementsByClassName("error-msg")[0].classList.add("hidden");
  
 }
 
 const checkCardType = (cardNb) => { 
-
-    console.log("type", cardNb);
     
     if (cardNb.startsWith('4')){
         // Visa card
@@ -83,4 +88,4 @@ const checkCardType = (cardNb) => {
     }
 };
 
-document.getElementById("validCardBtn").addEventListener("click", validCardNumber);
+document.getElementById("validCardBtn").addEventListener("click", validateCardNumber);
