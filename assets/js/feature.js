@@ -31,9 +31,13 @@ const validateCardNumber = () => {
             }
 
             if (nSum % 10 == 0) {
-                console.log("clicked 2")
+                
                 displayValidNumber(cardNumber);
-                checkCardType(cardNumber)
+                checkCardType(cardNumber);
+
+                document.getElementsByClassName("success-msg")[0].classList.remove("hidden");
+                document.getElementsByClassName("success-msg")[0].classList.add("showed");
+                document.getElementsByClassName("error-msg")[0].classList.add("hidden");
             }
             else {
                 document.getElementsByClassName("error-msg")[0].classList.remove("hidden");
