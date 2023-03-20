@@ -1,4 +1,4 @@
-// CHECKING BANK CARDS NUMBERS
+// BANK CARDS NUMBERS CHECKER
 // Done by KOUHOUINIKINA Laurion Dareich, Software Engineer
 // Alumni Ecole241 Promo 1, SUPINFO 2022
 
@@ -35,9 +35,11 @@ const validateCardNumber = () => {
             displayValidNumber(cardNumber);
             checkCardType(cardNumber);
 
+            // displaying success message on screen
             document.getElementsByClassName("success-msg")[0].classList.remove("hidden");
             document.getElementsByClassName("success-msg")[0].classList.add("showed");
 
+            // hiding error message on screen
             document.getElementsByClassName("error-msg")[0].classList.remove("showed");
             document.getElementsByClassName("error-msg")[0].classList.add("hidden");
 
@@ -46,9 +48,11 @@ const validateCardNumber = () => {
             
     };
 
+    // displaying error message on screen
     document.getElementsByClassName("error-msg")[0].classList.remove("hidden");
     document.getElementsByClassName("error-msg")[0].classList.add("showed");
 
+    // hiding success message on screen
     document.getElementsByClassName("success-msg")[0].classList.remove("showed");
     document.getElementsByClassName("success-msg")[0].classList.add("hidden");
         
@@ -63,6 +67,7 @@ const displayValidNumber = (cardNb) => {
     let digits = "";
     let arrCardNumbers = [];
 
+    // getting digits four by four
     for (let i = 0; i<= 16; i++){
 
         digits = digits + cardNb[i];
@@ -72,11 +77,13 @@ const displayValidNumber = (cardNb) => {
         }
     };
 
+    // Theses lines are displaying card digits on the card
     tagsArr[0].innerHTML = arrCardNumbers[0];
     tagsArr[1].innerHTML = arrCardNumbers[1];
     tagsArr[2].innerHTML = arrCardNumbers[2];
     tagsArr[3].innerHTML = arrCardNumbers[3];
 
+    // hiding error message on screen
     document.getElementsByClassName("error-msg")[0].classList.remove("showed");
     document.getElementsByClassName("error-msg")[0].classList.add("hidden");
  
