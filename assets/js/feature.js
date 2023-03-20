@@ -90,19 +90,22 @@ const displayValidNumber = (cardNb) => {
 }
 
 const checkCardType = (cardNb) => { 
-    
+
+    let imagesTags = document.getElementsByClassName("cardTypeImage");
+
     if (cardNb.startsWith('4')){
         // Visa card
-        let imagesTags = document.getElementsByClassName("cardTypeImage");
         imagesTags[0].src = "assets/img/visa.png";
         imagesTags[1].src = "assets/img/visa.png"
     }
-
-    if (cardNb.startsWith('5')){
+    else if (cardNb.startsWith('5')){
         // Mastercard
-        let imagesTags = document.getElementsByClassName("cardTypeImage");
         imagesTags[0].src = "assets/img/mastercard.png";
         imagesTags[1].src = "assets/img/mastercard.png"
+    }
+    else { 
+        imagesTags[0].src = "assets/img/none.png";
+        imagesTags[1].src = "assets/img/none.png"
     }
 };
 
