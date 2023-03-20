@@ -5,10 +5,11 @@
 
 
 
-function validCardNumber(){
+const validCardNumber = () => {
 
     let cardNumber = document.getElementById("card-nb-input").value;
     displayValidNumber(cardNumber);
+    checkCardType(cardNumber);
 
     if (cardNumber.length != 0){
 
@@ -39,9 +40,8 @@ function validCardNumber(){
    
 };
 
-document.getElementById("validCardBtn").addEventListener("click", validCardNumber);
 
-function displayValidNumber(cardNb){
+const displayValidNumber = (cardNb) => {
 
     let tagsArr = document.getElementsByClassName("card-no-item");
 
@@ -49,7 +49,7 @@ function displayValidNumber(cardNb){
     let arrCardNumbers = [];
 
     for (let i = 0; i<= 16; i++){
-        
+
         digits = digits + cardNb[i];
         if ((i+1)%4 == 0){
             arrCardNumbers.push(digits)
@@ -61,6 +61,26 @@ function displayValidNumber(cardNb){
     tagsArr[1].innerHTML = arrCardNumbers[1];
     tagsArr[2].innerHTML = arrCardNumbers[2];
     tagsArr[3].innerHTML = arrCardNumbers[3];
-
-   
+ 
 }
+
+const checkCardType = (cardNb) => { 
+
+    console.log("type", cardNb);
+    
+    if (cardNb.startsWith('4')){
+        // Visa card
+        let imagesTags = document.getElementsByClassName("cardTypeImage");
+        imagesTags[0].src = "assets/img/visa.png";
+        imagesTags[1].src = "assets/img/visa.png"
+    }
+
+    if (cardNb.startsWith('5')){
+        // Mastercard
+        let imagesTags = document.getElementsByClassName("cardTypeImage");
+        imagesTags[0].src = "assets/img/mastercard.png";
+        imagesTags[1].src = "assets/img/mastercard.png"
+    }
+};
+
+document.getElementById("validCardBtn").addEventListener("click", validCardNumber);
