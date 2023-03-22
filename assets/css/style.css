@@ -161,3 +161,26 @@
 .showed{display: block;}
 .hidden{display: none;}
 
+@media (min-width: 320px) and (max-width: 992px){
+    .input-group input{
+        width: 380px;
+        margin: auto 200px;
+    }
+    .card{
+        width: 380px;
+        height: 250px;
+        margin: auto 200px;
+    }
+    .card-no {
+        font-size: 18px;
+        margin-top: 30px;
+    }
+    .name p{
+        font-size : 15px;
+    }
+    .input-group .btn{
+        margin-left: 320px;
+        margin-bottom: 50px;
+    }
+}
+
