@@ -163,11 +163,11 @@
 
 @media (min-width: 320px) and (max-width: 992px){
     .input-group input{
-        width: 380px;
+        width: 350px;
         margin: auto 200px;
     }
     .card{
-        width: 380px;
+        width: 350px;
         height: 250px;
         margin: auto 200px;
     }
