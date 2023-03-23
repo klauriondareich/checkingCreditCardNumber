@@ -10,7 +10,7 @@
 .container {
     min-height: 100vh;
     width: 100%;
-    background: #f1f1f1;
+    background: #16330014;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -37,7 +37,7 @@
 .front, .back {
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(45deg, #0045c7, #4682B4);
+    background-image: linear-gradient(45deg, #80e14247, #4682B4);
     position: absolute;
     top: 0;
     left: 0;
@@ -126,27 +126,31 @@
 
 .input-group input{
     padding: 10px;
-    width: 100%;
+    width: 380px;
     border-radius: 3px;
-    border: 1px solid #4682B4;
+    border: 1px solid #c9cbce;
     -webkit-transition: 0.5s;
     transition: 0.5s;
     outline: none;
     font-size: 15px;
 }
 .input-group input:focus{
-    border: 2px solid #4682B4;
+    border: 1px solid #111;
     
 }
 .input-group .btn{
     padding: 10px;
-    background-color: #4682B4;
+    background-color: #9fe870;
     border: 0;
     cursor: pointer;
-    border-radius: 3px;
-    margin-left: 200px;
+    border-radius: 5px;
+    margin-left: 20px;
     margin-top: 20px;
     margin-bottom: 20px;
+    font-weight: bold;
+}
+.input-group .btn:hover{
+    background-color: #80e142;
 }
 .error-msg{
     color: red;
@@ -160,6 +164,11 @@
 }
 .showed{display: block;}
 .hidden{display: none;}
+h1{
+    color: #0e0f0c;
+    padding-bottom: 20px;
+    text-align: center;
+}
 
 @media (min-width: 320px) and (max-width: 992px){
     .input-group input{
@@ -181,6 +190,9 @@
     .input-group .btn{
         margin-left: 320px;
         margin-bottom: 50px;
+    }
+    h1{
+        font-size: 20px;
     }
 }
 
